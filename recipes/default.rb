@@ -1,7 +1,11 @@
+include_recipe "libkrb5support"
+
 packages = Array.new
 
 case node[:lsb][:codename]
 when "lucid"
+  include_recipe "libkeyutils"
+
   packages |= %w/
     libk5crypto3
   /
